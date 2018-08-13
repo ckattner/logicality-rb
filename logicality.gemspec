@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
     expression evaluator.
   EOS
 
-  s.authors     = [ "Matthew Ruggio" ]
+  s.authors     = [ 'Matthew Ruggio' ]
   s.email       = [ 'mruggio@bluemarblepayroll.com' ]
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -23,6 +23,6 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.3.7'
 
-  s.add_development_dependency("rspec")
+  s.add_development_dependency('rspec')
 
 end
