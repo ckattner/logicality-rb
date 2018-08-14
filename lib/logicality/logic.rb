@@ -9,7 +9,7 @@ module Logicality
   class Logic
     class << self
 
-      def evaluate(expression, input, resolver = nil)
+      def evaluate(expression, input = nil, resolver = nil)
         node        = get(expression)
         wrapper     = resolver_wrapper(input, resolver)
         interpreter = Interpreter::SimpleInterpreter.new(wrapper)
