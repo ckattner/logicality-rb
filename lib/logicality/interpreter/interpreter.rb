@@ -5,5 +5,5 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/interpreter/node_visitor'
-require './lib/logicality/interpreter/simple_interpreter'
+require_relative 'node_visitor'
+require_relative 'simple_interpreter'

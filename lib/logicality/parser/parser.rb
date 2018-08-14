@@ -5,5 +5,5 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/parser/ast/ast'
-require './lib/logicality/parser/simple_parser'
+require_relative 'ast/ast'
+require_relative 'simple_parser'

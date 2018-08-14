@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/parser/ast/node'
-require './lib/logicality/parser/ast/binary_operator_node'
-require './lib/logicality/parser/ast/unary_operator_node'
-require './lib/logicality/parser/ast/value_operand_node'
+require_relative 'node'
+require_relative 'binary_operator_node'
+require_relative 'unary_operator_node'
+require_relative 'value_operand_node'

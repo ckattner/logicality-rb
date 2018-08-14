@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/lexer/lexer'
-require './lib/logicality/parser/parser'
-require './lib/logicality/interpreter/interpreter'
-require './lib/logicality/logic'
+require_relative 'lexer/lexer'
+require_relative 'parser/parser'
+require_relative 'interpreter/interpreter'
+require_relative 'logic'

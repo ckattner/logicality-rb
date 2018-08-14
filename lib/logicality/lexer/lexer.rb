@@ -5,6 +5,6 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/lexer/grammar'
-require './lib/logicality/lexer/token'
-require './lib/logicality/lexer/regexp_lexer'
+require_relative 'grammar'
+require_relative 'token'
+require_relative 'regexp_lexer'
