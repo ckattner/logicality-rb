@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/bluemarblepayroll/logicality-rb'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 2.3.7'
+  s.required_ruby_version = '>= 2.3.1'
 
   s.add_development_dependency('rspec')
 
