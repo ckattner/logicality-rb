@@ -5,7 +5,7 @@
 # LICENSE file in the root directory of this source tree.
 #
 
-require './lib/logicality/logicality'
+require './lib/logicality'
 
 def run(tests)
   tests.each do |x|
