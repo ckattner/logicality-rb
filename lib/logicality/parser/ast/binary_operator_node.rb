@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -8,8 +10,8 @@
 module Logicality
   module Parser
     module Ast
+      # A binary operator contains two children (left and right) nodes.
       class BinaryOperatorNode < Node
-
         attr_reader :left, :right
 
         def initialize(left, token, right)
@@ -19,7 +21,6 @@ module Logicality
           @left  = left
           @right = right
         end
-
       end
     end
   end

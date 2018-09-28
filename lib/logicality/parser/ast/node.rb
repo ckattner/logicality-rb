@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -8,8 +10,8 @@
 module Logicality
   module Parser
     module Ast
+      # Base construct defining all nodes.
       class Node
-
         attr_reader :token, :name
 
         def initialize(token)
@@ -20,7 +22,6 @@ module Logicality
         def to_s
           "AstNode: #{self.class.name}::#{token}"
         end
-
       end
     end
   end

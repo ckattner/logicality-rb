@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,12 +9,13 @@
 
 module Logicality
   module Interpreter
+    # This class implements NodeVisitor and gives each type of node the proper type of visitor
+    # implementation.
     class SimpleInterpreter < NodeVisitor
-
       attr_reader :resolver
 
       def initialize(resolver)
-        raise ArgumentError, "Resolver is required" unless resolver
+        raise ArgumentError, 'Resolver is required' unless resolver
 
         @resolver = resolver
       end
@@ -52,13 +55,10 @@ module Logicality
       private
 
       def resolve_value(value)
-        if resolver.nil?
-          raise ArgumentError, "No resolver function but trying to resolve: #{value}"
-        end
+        raise ArgumentError, "No resolver function: #{value}" if resolver.nil?
 
         !!resolver.call(value)
       end
-
     end
   end
 end

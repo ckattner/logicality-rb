@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,6 +9,7 @@
 
 module Logicality
   module Lexer
+    # Define the main regular expression matchers used by the lexer.
     module Grammar
       VALUE       = /([a-zA-Z0-9_$@?\.]+)/
       AND_OP      = /(&&)/

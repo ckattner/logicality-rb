@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,8 +9,9 @@
 
 module Logicality
   module Lexer
+    # Class that defines the main structure of a Token.  A token is a parsed set of
+    # characters.
     class Token
-
       module Type
         VALUE       = :value
         AND_OP      = :and_op
@@ -21,8 +24,8 @@ module Logicality
       attr_reader :type, :value
 
       def initialize(type, value)
-        raise ArgumentError, 'type is required'   unless type   && type.to_s.length > 0
-        raise ArgumentError, 'value is required'  unless value  && value.to_s.length > 0
+        raise ArgumentError, 'type is required'   unless type   && type.to_s.length.positive?
+        raise ArgumentError, 'value is required'  unless value  && value.to_s.length.positive?
 
         @type   = Type.const_get(type.to_s.upcase.to_sym)
         @value  = value.to_s
@@ -31,7 +34,6 @@ module Logicality
       def to_s
         "#{type}::#{value}"
       end
-
     end
   end
 end

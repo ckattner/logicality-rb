@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,8 +9,8 @@
 
 module Logicality
   module Interpreter
+    # This is a base class for traversing a node.
     class NodeVisitor
-
       def visit(node)
         return nil unless node
 
@@ -30,7 +32,6 @@ module Logicality
       def method_name(node)
         "visit_#{node.name}"
       end
-
     end
   end
 end

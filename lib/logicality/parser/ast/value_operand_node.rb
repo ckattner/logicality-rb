@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -8,8 +10,8 @@
 module Logicality
   module Parser
     module Ast
+      # A value operand node is a node with no children but holds a value instead.
       class ValueOperandNode < Node
-
         attr_reader :value
 
         def initialize(token)
@@ -18,7 +20,6 @@ module Logicality
           @name  = 'value_operand_node'
           @value = token.value
         end
-
       end
     end
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,11 +9,11 @@
 
 module Logicality
   module Lexer
+    # This class is a simple lexical token analyzer based on regular expression grammer matchers.
     class RegexpLexer
       include Grammar
 
       class << self
-
         def invalid_pattern
           "#{pattern}|(\\s*)"
         end
@@ -21,24 +23,25 @@ module Logicality
         end
 
         def pattern
-          Grammar.constants.map { |c| Grammar.const_get(c).source }
-                           .join('|')
+          Grammar.constants
+                 .map { |c| Grammar.const_get(c).source }
+                 .join('|')
         end
 
         def regexp
           Regexp.new(pattern)
         end
-
       end
 
       attr_reader :expression
 
       def initialize(expression)
-        raise ArgumentError, 'Expression is required' unless expression && expression.to_s.length > 0
+        raise ArgumentError, 'Expression is required' unless expression &&
+                                                             expression.to_s.length.positive?
 
         @expression = expression.to_s
 
-        if invalid_matches.length > 0
+        if invalid_matches.length.positive?
           raise ArgumentError, "Invalid syntax: #{invalid_matches}"
         end
 
@@ -59,11 +62,9 @@ module Logicality
           value ? Token.new(const, value) : nil
         end.compact
 
-        if tokens.length > 1
-          raise ArgumentError, "Too many tokens found for: #{scan_array}"
-        elsif tokens.length == 0
-          raise ArgumentError, "Cannot tokenize: #{scan_array}"
-        end
+        raise ArgumentError, "Too many tokens found for: #{scan_array}" if tokens.length > 1
+
+        raise ArgumentError, "Cannot tokenize: #{scan_array}" if tokens.length.zero?
 
         tokens.first
       end
@@ -91,7 +92,6 @@ module Logicality
       def matches
         @matches ||= expression.scan(self.class.regexp)
       end
-
     end
   end
 end

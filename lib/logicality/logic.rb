@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -6,9 +8,9 @@
 #
 
 module Logicality
+  # Class that defines the main class-level API for this library.
   class Logic
     class << self
-
       def evaluate(expression, input = nil, resolver = nil)
         node        = get(expression)
         wrapper     = resolver_wrapper(input, resolver)
@@ -21,9 +23,9 @@ module Logicality
 
       def resolver_wrapper(input, resolver)
         if resolver
-          lambda { |value| resolver.call(value, input) }
+          ->(value) { resolver.call(value, input) }
         else
-          lambda { |value| object_resolver.call(value, input) }
+          ->(value) { object_resolver.call(value, input) }
         end
       end
 
@@ -59,7 +61,6 @@ module Logicality
 
         set(expression, parser.parse)
       end
-
     end
   end
 end

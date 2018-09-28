@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Copyright (c) 2018-present, Blue Marble Payroll, LLC
 #
@@ -7,8 +9,9 @@
 
 module Logicality
   module Parser
+    # Parser that takes in a lexer and can take its parsed grammar and turn it into an
+    # abstract syntax tree.
     class SimpleParser
-
       attr_reader :lexer
 
       def initialize(lexer)
@@ -16,10 +19,7 @@ module Logicality
 
         @current_token = lexer.next_token
 
-        if @current_token.nil?
-          raise ArgumentError, 'Lexer must contain at least one token'
-        end
-
+        raise ArgumentError, 'Lexer must contain at least one token' if @current_token.nil?
       end
 
       def parse
@@ -30,7 +30,7 @@ module Logicality
 
       BINARY_TYPES = [
         Lexer::Token::Type::AND_OP,
-        Lexer::Token::Type::OR_OP,
+        Lexer::Token::Type::OR_OP
       ].freeze
 
       attr_reader :current_token
@@ -91,7 +91,6 @@ module Logicality
 
         node
       end
-
     end
   end
 end
