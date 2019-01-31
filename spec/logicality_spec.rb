@@ -13,7 +13,7 @@ def run(tests)
   tests.each do |x|
     input = x[1] ? x[1].map { |k, v| [k.to_s, v] }.to_h : nil
 
-    result = Logicality::Logic.evaluate(x[0], input)
+    result = Logicality.evaluate(x[0], input)
 
     expect(result).to eq(x[2]), "Failed: #{x[0]} (input: #{input}): expected #{x[2]} got: #{result}"
   end
@@ -21,7 +21,7 @@ def run(tests)
   nil
 end
 
-describe Logicality::Logic do
+describe Logicality do
   context 'when evaluating' do
     it 'should evaluate boolean-only expressions' do
       tests = [

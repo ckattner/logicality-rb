@@ -19,7 +19,7 @@ resolving boolean values such as:
 
 ## Credit
 
-Deep inspiration was taken from [this set of articles](https://ruslanspivak.com/lsbasi-part7/).  
+Deep inspiration was taken from [this set of articles](https://ruslanspivak.com/lsbasi-part7/).
 Here, the author gives details around the theory and practical implementation of creating a basic
 language processor and compiler.
 
@@ -51,7 +51,7 @@ Now you can bind and evaluate this expression against passed in objects:
 
 ````
 record = { 'visible' => false, 'admin' => true }
-visible = Logicality::Logic.evaluate('visible || admin', record) # resolves to true.
+visible = Logicality.evaluate('visible || admin', record) # resolves to true.
 ````
 
 ### Plugging in a Custom Resolver
@@ -65,7 +65,7 @@ resolver = lambda do |value, input|
 end
 
 record = { visible: false, admin: true }
-visible = Logicality::Logic.evaluate('visible || admin', record) # resolves to true.
+visible = Logicality.evaluate('visible || admin', record, resolver) # resolves to true.
 ````
 
 ## Contributing
@@ -85,8 +85,36 @@ Basic steps to take to get this repository compiling:
 To execute the test suite run:
 
 ````
-rspec
+bundle exec rspec spec --format documentation
 ````
+
+Alternatively, you can have Guard watch for changes:
+
+````
+bundle exec guard
+````
+
+Also, do not forget to run Rubocop:
+
+````
+bundle exec rubocop
+````
+
+### Publishing
+
+Note: ensure you have proper authorization before trying to publish new versions.
+
+After code changes have successfully gone through the Pull Request review process then the following steps should be followed for publishing new versions:
+
+1. Merge Pull Request into master
+2. Update ```lib/logicality/version.rb``` using [semantic versioning](https://semver.org/)
+3. Install dependencies: ```bundle```
+4. Update ```CHANGELOG.md``` with release notes
+5. Commit & push master to remote and ensure CI builds master successfully
+6. Build the project locally: `gem build logicality`
+7. Publish package to RubyGems: `gem push logicality-X.gem` where X is the version to push
+8. Tag master with new version: `git tag <version>`
+9. Push tags remotely: `git push origin --tags`
 
 ## License
 

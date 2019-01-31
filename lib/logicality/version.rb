@@ -8,5 +8,5 @@
 #
 
 module Logicality
-  VERSION = '1.0.5'
+  VERSION = '2.0.0'
 end

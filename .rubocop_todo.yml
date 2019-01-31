@@ -25,10 +25,10 @@ Metrics/MethodLength:
 Style/DoubleNegation:
   Exclude:
     - 'lib/logicality/interpreter/simple_interpreter.rb'
-    - 'lib/logicality/logic.rb'
+    - 'lib/logicality/logicality.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/OrAssignment:
   Exclude:
-    - 'lib/logicality/logic.rb'
+    - 'lib/logicality/logicality.rb'

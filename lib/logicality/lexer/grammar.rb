@@ -11,12 +11,12 @@ module Logicality
   module Lexer
     # Define the main regular expression matchers used by the lexer.
     module Grammar
-      VALUE       = /([a-zA-Z0-9_$@?\.]+)/
-      AND_OP      = /(&&)/
-      OR_OP       = /(\|\|)/
-      NOT_OP      = /(\!)/
-      LEFT_PAREN  = /(\()/
-      RIGHT_PAREN = /(\))/
+      VALUE       = /([a-zA-Z0-9_$@?\.]+)/.freeze
+      AND_OP      = /(&&)/.freeze
+      OR_OP       = /(\|\|)/.freeze
+      NOT_OP      = /(\!)/.freeze
+      LEFT_PAREN  = /(\()/.freeze
+      RIGHT_PAREN = /(\))/.freeze
     end
   end
 end
